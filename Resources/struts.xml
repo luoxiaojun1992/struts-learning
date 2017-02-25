@@ -16,5 +16,9 @@
             <result name="success">Welcome.jsp</result>
             <result name="error">Login.jsp</result>
         </action>
+        <action name="article-detail"
+            class="net.viralpatel.struts2.action.ArticleDetailAction">
+            <result name="success">ArticleDetail.jsp</result>
+        </action>
     </package>
 </struts>
