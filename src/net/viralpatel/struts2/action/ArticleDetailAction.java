@@ -8,7 +8,7 @@ public class ArticleDetailAction extends ActionSupport {
  
     public String execute() {
  
-    	setTitle(getText("label.username"));
+    	setTitle(getText("article.title"));
     	setContent("test content");
     	return SUCCESS;
         
