@@ -1,6 +1,7 @@
 package net.viralpatel.struts2.action;
 
 import java.util.Map;
+import net.viralpatel.struts2.bean.*;
 
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
@@ -8,6 +9,7 @@ import com.opensymphony.xwork2.ActionSupport;
 public class ArticleDetailAction extends ActionSupport {
     private String title;
     private String content;
+    private User user;
  
     public String execute() {
  
@@ -18,6 +20,8 @@ public class ArticleDetailAction extends ActionSupport {
     	
     	setTitle(getText("article.title").concat(articleId));
     	setContent(getText("article.content"));
+    	setUser(new User());
+    	
     	return SUCCESS;
         
     }
@@ -37,5 +41,12 @@ public class ArticleDetailAction extends ActionSupport {
     public void setContent(String content) {
         this.content = content;
     }
+    
+    public User getUser() {
+    	return user;
+    }
+    
+    public void setUser(User user) {
+    	this.user = user;
+    }
 }
-

@@ -9,6 +9,7 @@
 </head>
 <body>
 <h2><s:property value="title" /></h2>
+<p><s:property value="user.name" /></p>
 <pre><s:property value="content" /></pre>
 </body>
 </html>
