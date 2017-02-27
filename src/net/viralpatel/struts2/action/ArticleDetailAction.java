@@ -9,7 +9,7 @@ public class ArticleDetailAction extends ActionSupport {
     public String execute() {
  
     	setTitle(getText("article.title"));
-    	setContent("test content");
+    	setContent(getText("article.content"));
     	return SUCCESS;
         
     }
