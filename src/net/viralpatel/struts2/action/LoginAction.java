@@ -9,6 +9,12 @@ public class LoginAction extends BaseAction {
  
     public String execute() {
  
+    	return super.execute();
+        
+    }
+    
+    public String submit() {
+    	
     	super.execute();
     	
     	//Get Login Page
@@ -17,8 +23,8 @@ public class LoginAction extends BaseAction {
         ) {
         	return LOGIN;
         }
-        
-        //Post Login Page
+    	
+    	//Post Login Page
         if (this.username.equals(USERNAME)
                 && this.password.equals(PASSWORD)) {
             return SUCCESS;

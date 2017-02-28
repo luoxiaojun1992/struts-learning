@@ -13,9 +13,17 @@
     <package name="default" extends="struts-default" namespace="/">
         <action name="login"
             class="net.viralpatel.struts2.action.LoginAction">
+            <result name="success">Login.jsp</result>
+        </action>
+        <action name="login-submit"
+            class="net.viralpatel.struts2.action.LoginAction"
+            method="submit">
             <result name="success">Dashboard.jsp</result>
-            <result name="error">Login.jsp</result>
-            <result name="login">Login.jsp</result>
+            <result name="error">LoginError.jsp</result>
+            <result name="login">LoginError.jsp</result>
+            <result name="invalid.token">InvalidToken.jsp</result>
+            <interceptor-ref name="defaultStack" />
+            <interceptor-ref name="token" />
         </action>
         <action name="article-detail"
             class="net.viralpatel.struts2.action.ArticleDetailAction">
