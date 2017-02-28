@@ -1,8 +1,7 @@
 package net.viralpatel.struts2.action;
 
-import com.opensymphony.xwork2.ActionSupport;
-
-public class LoginAction extends ActionSupport {
+public class LoginAction extends BaseAction {
+	
     private String username;
     private String password;
     private final static String USERNAME = "admin";
@@ -10,6 +9,8 @@ public class LoginAction extends ActionSupport {
  
     public String execute() {
  
+    	super.execute();
+    	
     	//Get Login Page
         if (this.username == null 
         		|| this.password == null
@@ -25,21 +26,30 @@ public class LoginAction extends ActionSupport {
             addActionError(getText("error.login"));
             return ERROR;
         }
+        
     }
  
     public String getUsername() {
-        return username;
+        
+    	return username;
+    
     }
  
     public void setUsername(String username) {
-        this.username = username;
+        
+    	this.username = username;
+    
     }
  
     public String getPassword() {
-        return password;
+        
+    	return password;
+    
     }
  
     public void setPassword(String password) {
-        this.password = password;
+        
+    	this.password = password;
+    
     }
 }

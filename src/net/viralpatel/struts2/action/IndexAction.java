@@ -1,12 +1,10 @@
 package net.viralpatel.struts2.action;
 
-import com.opensymphony.xwork2.ActionSupport;
-
-public class IndexAction extends ActionSupport {
-    
+public class IndexAction extends BaseAction {
+	
     public String execute() {
     	
-    	return SUCCESS;
+    	return super.execute();
         
     }
 

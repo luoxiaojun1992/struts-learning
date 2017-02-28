@@ -2,9 +2,8 @@ package net.viralpatel.struts2.action;
 
 import net.viralpatel.struts2.bean.*;
 import org.apache.struts2.ServletActionContext;
-import com.opensymphony.xwork2.ActionSupport;
 
-public class ArticleDetailAction extends ActionSupport {
+public class ArticleDetailAction extends BaseAction {
     private String title;
     private String content;
     private User user;
@@ -25,7 +24,7 @@ public class ArticleDetailAction extends ActionSupport {
     	setContent(getText("article.content"));
     	setUser(new User());
     	
-    	return SUCCESS;
+    	return super.execute();
         
     }
  

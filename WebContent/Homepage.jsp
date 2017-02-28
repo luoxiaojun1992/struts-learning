@@ -1,6 +1,7 @@
 <jsp:include page="./head.jsp" />
 <%@ taglib prefix="s" uri="/struts-tags"%>
 <body>
-	<jsp:forward page="index.action"></jsp:forward>
+	<h2><s:property value="siteName" /></h2>
+    <pre>Building...</pre>
 </body>
 </html>
