@@ -1,24 +1,27 @@
 package net.viralpatel.struts2.action;
 
-import java.util.Map;
 import net.viralpatel.struts2.bean.*;
-
-import com.opensymphony.xwork2.ActionContext;
+import org.apache.struts2.ServletActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 
 public class ArticleDetailAction extends ActionSupport {
     private String title;
     private String content;
     private User user;
- 
+    
+    private String getParam(String key, String ...default_val) {
+    	
+    	if (default_val.length < 1) {
+    		default_val = new String[]{""};
+    	}
+    	String val = ServletActionContext.getRequest().getParameter(key);
+    	return val == null ? default_val[0] : val;
+    
+    }
+    
     public String execute() {
  
-    	//Get Request Parameters
-    	ActionContext context = ActionContext.getContext();
-    	Map params = context.getParameters();
-    	String articleId = params.getOrDefault("articleId", "111").toString();
-    	
-    	setTitle(getText("article.title").concat(articleId));
+    	setTitle(getText("article.title").concat(getParam("id", "222")));
     	setContent(getText("article.content"));
     	setUser(new User());
     	
