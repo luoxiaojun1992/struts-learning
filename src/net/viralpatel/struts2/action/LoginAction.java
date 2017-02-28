@@ -5,11 +5,21 @@ import com.opensymphony.xwork2.ActionSupport;
 public class LoginAction extends ActionSupport {
     private String username;
     private String password;
+    private final static String USERNAME = "admin";
+    private final static String PASSWORD = "admin123";
  
     public String execute() {
  
-        if (this.username.equals("admin")
-                && this.password.equals("admin123")) {
+    	//Get Login Page
+        if (this.username == null 
+        		|| this.password == null
+        ) {
+        	return LOGIN;
+        }
+        
+        //Post Login Page
+        if (this.username.equals(USERNAME)
+                && this.password.equals(PASSWORD)) {
             return SUCCESS;
         } else {
             addActionError(getText("error.login"));
