@@ -21,4 +21,5 @@ public class ArticleDetailAction extends BaseAction {
     public void setArticle(Article article) {
     	this.article = article;
     }
+    
 }
