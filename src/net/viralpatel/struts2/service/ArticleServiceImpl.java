@@ -13,10 +13,10 @@ public class ArticleServiceImpl implements ArticleService {
         Configuration cfg = new Configuration().configure();  
         
         //建立SessionFactory  
-        SessionFactory factory =cfg.buildSessionFactory();  
+        SessionFactory factory = cfg.buildSessionFactory();  
           
         //取得session  
-        Session session = null;  
+        Session session = null;
           
         try {
         	
