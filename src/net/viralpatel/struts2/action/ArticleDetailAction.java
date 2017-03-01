@@ -13,7 +13,7 @@ public class ArticleDetailAction extends BaseAction {
     	
 //    	setArticle(new Article(getText("article.title").concat(getParam("id", "222")), getText("article.content")));
     	
-    	setArticle(articleServ.getArticleById(getParam("id", "222")));
+    	setArticle(getArticleServ().getArticleById(getParam("id", "222")));
     	
     	return super.execute();
         
@@ -34,6 +34,12 @@ public class ArticleDetailAction extends BaseAction {
     public void setArticleServ(ArticleService articleServ) {
     	
     	this.articleServ = articleServ;
+    
+    }
+    
+    public ArticleService getArticleServ() {
+    	
+    	return articleServ;
     
     }
     
