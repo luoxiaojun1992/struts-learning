@@ -8,7 +8,18 @@
             http://www.springframework.org/schema/beans 
             http://www.springframework.org/schema/beans/spring-beans-3.2.xsd">
             
-    <bean id="articleServ" class="net.viralpatel.struts2.service.ArticleServiceImpl"></bean>
+    <bean id="sessionFactory" class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
+    	<property name="configLocation" value="classpath:hibernate.cfg.xml"></property>
+    </bean>
+    
+    <bean id="articleDao" class="net.viralpatel.struts2.dao.ArticleDao">
+    	<property name="sessionFactory" ref="sessionFactory" />
+    </bean>
+            
+    <bean id="articleServ" class="net.viralpatel.struts2.service.ArticleServiceImpl">
+    	<property name="articleDao" ref="articleDao" />
+    </bean>
+    
     <bean id="articleDetailAction" class="net.viralpatel.struts2.action.ArticleDetailAction" scope="prototype">
         <property name="articleServ" ref="articleServ"></property>
     </bean>
