@@ -23,9 +23,10 @@ public class ArticleServiceImpl implements ArticleService {
             //开启session  
             session = factory.openSession();
             
-            //开启事务  
+            //开启事务
             session.beginTransaction();
             
+            //查询文章
             Article article = (Article)session.get(Article.class, id);
               
             //提交事务  
