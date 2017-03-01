@@ -11,9 +11,7 @@ public class ArticleDetailAction extends BaseAction {
     
     public String execute() {
     	
-//    	setArticle(new Article(getText("article.title").concat(getParam("id", "222")), getText("article.content")));
-    	
-    	setArticle(getArticleServ().getArticleById(getParam("id", "222")));
+    	setArticle(getArticleServ().getArticleById(Integer.parseInt(getParam("id", "0"))));
     	
     	return super.execute();
         

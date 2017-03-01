@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC   
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"  
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">  
+<hibernate-mapping>   
+    <class name="net.viralpatel.struts2.bean.Article" table="article">  
+        <id name="id">
+            <generator class="native"></generator>  
+        </id>  
+        <property name="title" type="string"></property>  
+        <property name="content" type="text"></property>  
+        <property name="publishAt" type="date"></property>  
+        <property name="updateAt" type="date"></property>  
+    </class>
+</hibernate-mapping>

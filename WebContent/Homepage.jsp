@@ -6,7 +6,7 @@
 	<ul>
 		<li>
 			<a href="<s:url action="article-detail.action">
-						<s:param name="id" value="111"></s:param>
+						<s:param name="id" value="1"></s:param>
 					</s:url>">test article</a>
 		</li>
 	</ul>

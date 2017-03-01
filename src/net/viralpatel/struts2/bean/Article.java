@@ -1,14 +1,21 @@
 package net.viralpatel.struts2.bean;
 
+import java.util.Date;
+
 public class Article {
 	
+	private int id;
 	private String title;
 	private String content;
-	private String publishAt;
+	private Date publishAt;
+	private Date updateAt;
 	
-	public Article(String title, String content) {
-		setTitle(title);
-		setContent(content);
+	public int getId() {
+		return id;
+	}
+	
+	public void setId(int id) {
+		this.id = id;
 	}
 	
 	public String getTitle() {
@@ -27,12 +34,20 @@ public class Article {
 		this.content = content;
 	}
 	
-	public String getPublishAt() {
+	public Date getPublishAt() {
 		return publishAt;
 	}
 	
-	public void setPublishAt(String publishAt) {
+	public void setPublishAt(Date publishAt) {
 		this.publishAt = publishAt;
+	}
+	
+	public Date getUpdateAt() {
+		return updateAt;
+	}
+	
+	public void setUpdateAt(Date updateAt) {
+		this.updateAt = updateAt;
 	}
 
 }
