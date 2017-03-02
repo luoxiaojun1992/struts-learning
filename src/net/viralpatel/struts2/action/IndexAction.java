@@ -1,12 +1,13 @@
 package net.viralpatel.struts2.action;
 
 import java.util.List;
+import net.viralpatel.struts2.bean.Article;
 import net.viralpatel.struts2.service.ArticleService;
 
 public class IndexAction extends BaseAction {
 	
 	private ArticleService articleServ;
-	private List articles;
+	private List<Article> articles;
 	
     public String execute() {
     	
@@ -28,13 +29,13 @@ public class IndexAction extends BaseAction {
     
     }
     
-    public void setArticles(List articles) {
+    public void setArticles(List<Article> articles) {
     	
     	this.articles = articles;
     
     }
     
-    public List getArticles() {
+    public List<Article> getArticles() {
     	
     	return articles;
     	

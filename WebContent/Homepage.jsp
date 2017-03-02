@@ -8,7 +8,7 @@
 	        <li>
 		        <a href="<s:url action="article-detail.action">
 					<s:param name="id" value="#article.id"></s:param>
-				</s:url>"><s:property value="#article.title" /></a>
+				</s:url>" target="_blank"><s:property value="#article.title" /></a>
 			</li>
 		</s:iterator>
 	</ul>

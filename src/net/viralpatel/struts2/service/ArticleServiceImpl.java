@@ -18,11 +18,11 @@ public class ArticleServiceImpl implements ArticleService {
 	
 	public List<Article> getAllArticles() {
 		
-		List articleArray = new ArrayList<Article>();
+		List<Article> articleArray = new ArrayList<Article>();
     	
     	List articleList = getArticleDao().getAllEntity(Article.class);
     	Iterator i = articleList.iterator();
-    	if (i.hasNext()) {
+    	while (i.hasNext()) {
     		articleArray.add((Article) i.next());
     	}
 		
