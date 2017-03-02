@@ -1,9 +1,10 @@
 package net.viralpatel.struts2.service;
 
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 import net.viralpatel.struts2.bean.Article;
-
 import net.viralpatel.struts2.dao.ArticleDao;
-import net.viralpatel.struts2.dao.BaseDao;
 
 public class ArticleServiceImpl implements ArticleService {
 
@@ -15,12 +16,30 @@ public class ArticleServiceImpl implements ArticleService {
 		
 	}
 	
-	public void setArticleDao(ArticleDao articleDao) {
-		this.articleDao = articleDao;
+	public List<Article> getAllArticles() {
+		
+		List articleArray = new ArrayList<Article>();
+    	
+    	List articleList = getArticleDao().getAllEntity(Article.class);
+    	Iterator i = articleList.iterator();
+    	if (i.hasNext()) {
+    		articleArray.add((Article) i.next());
+    	}
+		
+    	return articleArray;
+    	
 	}
 	
-	public BaseDao getArticleDao() {
+	public void setArticleDao(ArticleDao articleDao) {
+		
+		this.articleDao = articleDao;
+	
+	}
+	
+	public ArticleDao getArticleDao() {
+		
 		return articleDao;
+	
 	}
 	
 }
