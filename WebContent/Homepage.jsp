@@ -12,5 +12,6 @@
 			</li>
 		</s:iterator>
 	</ul>
+	<footer>Powered by Xiaojun Luo</footer>
 </body>
 </html>
