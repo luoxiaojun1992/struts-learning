@@ -11,11 +11,14 @@
     <constant name="struts.custom.i18n.resources"
         value="ApplicationResources" />
  
+ 	<!-- Frontend -->
     <package name="default" extends="struts-default" namespace="/">
+    	<!-- Login Page -->
         <action name="login"
             class="net.viralpatel.struts2.action.LoginAction">
             <result name="success">Login.jsp</result>
         </action>
+        <!-- Login Submit Action -->
         <action name="login-submit"
             class="net.viralpatel.struts2.action.LoginAction"
             method="submit">
@@ -26,15 +29,24 @@
             <interceptor-ref name="defaultStack" />
             <interceptor-ref name="token" />
         </action>
+        <!-- Article Detail Page -->
         <action name="article-detail"
             class="net.viralpatel.struts2.action.ArticleDetailAction">
             <result name="success">ArticleDetail.jsp</result>
         </action>
+        <!-- Article List Page -->
+        <action name="article-list"
+            class="net.viralpatel.struts2.action.ArticleListAction">
+            <result name="success">ArticleList.jsp</result>
+        </action>
+        <!-- Homepage -->
         <action name="index" class="net.viralpatel.struts2.action.IndexAction">
         	<result name="success">Homepage.jsp</result>
         </action>
     </package>
+    <!-- Backend -->
     <package name="admin" extends="struts-default" namespace="/admin">
+    	<!-- Dashboard Page -->
     	<action name="dashboard"
         	class="net.viralpatel.struts2.action.DashboardAction">
         	<result name="success">Dashboard.jsp</result>

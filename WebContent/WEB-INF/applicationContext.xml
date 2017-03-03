@@ -24,6 +24,10 @@
         <property name="articleServ" ref="articleServ"></property>
     </bean>
     
+    <bean id="articleListAction" class="net.viralpatel.struts2.action.ArticleListAction" scope="prototype">
+        <property name="articleServ" ref="articleServ"></property>
+    </bean>
+    
     <bean id="indexAction" class="net.viralpatel.struts2.action.IndexAction" scope="prototype">
         <property name="articleServ" ref="articleServ"></property>
     </bean>
