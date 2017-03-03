@@ -19,7 +19,7 @@
         <action name="login-submit"
             class="net.viralpatel.struts2.action.LoginAction"
             method="submit">
-            <result name="success">Dashboard.jsp</result>
+            <result name="success">LoginSuccess.jsp</result>
             <result name="error">LoginError.jsp</result>
             <result name="login">LoginError.jsp</result>
             <result name="invalid.token">InvalidToken.jsp</result>
@@ -31,6 +31,13 @@
             <result name="success">ArticleDetail.jsp</result>
         </action>
         <action name="index" class="net.viralpatel.struts2.action.IndexAction">
-        	<result name="success">Homepage.jsp</result></action>
+        	<result name="success">Homepage.jsp</result>
+        </action>
+    </package>
+    <package name="admin" extends="struts-default" namespace="/admin">
+    	<action name="dashboard"
+        	class="net.viralpatel.struts2.action.DashboardAction">
+        	<result name="success">Dashboard.jsp</result>
+        </action>
     </package>
 </struts>

@@ -1,5 +1,12 @@
 package net.viralpatel.struts2.action;
 
+import java.io.IOException;
+import java.util.Map;
+
+import org.apache.struts2.ServletActionContext;
+
+import com.opensymphony.xwork2.ActionContext;
+
 public class LoginAction extends BaseAction {
 	
     private String username;
@@ -13,7 +20,7 @@ public class LoginAction extends BaseAction {
         
     }
     
-    public String submit() {
+    public String submit() throws IOException {
     	
     	super.execute();
     	
@@ -21,15 +28,23 @@ public class LoginAction extends BaseAction {
         if (this.username == null 
         		|| this.password == null
         ) {
+        	ServletActionContext.getResponse().sendRedirect("login.action");
         	return LOGIN;
         }
     	
     	//Post Login Page
         if (this.username.equals(USERNAME)
                 && this.password.equals(PASSWORD)) {
+        	
+        	Map<String, Object> session = ActionContext.getContext().getSession();
+        	session.put("login_flag", getUsername());
+        	
+        	ServletActionContext.getResponse().sendRedirect("admin/dashboard.action");
             return SUCCESS;
         } else {
             addActionError(getText("error.login"));
+            
+            ServletActionContext.getResponse().sendRedirect("login.action");
             return ERROR;
         }
         
