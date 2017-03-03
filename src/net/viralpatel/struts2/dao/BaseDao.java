@@ -17,4 +17,6 @@ public interface BaseDao {
 
     public <T>List <T>getAllEntity(Class <T>entityClass);
     
+    public <T>List <T>findByPage(Class <T>entityClass, int offset, int limit);
+    
 }

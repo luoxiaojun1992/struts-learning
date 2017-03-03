@@ -12,7 +12,7 @@ public class ArticleListAction extends BaseAction {
 	
 	public String execute() {
     	
-    	setArticles(getArticleServ().getAllArticles());
+    	setArticles(getArticleServ().getAllArticlesByPage(0, 1));
     	
     	return super.execute();
         

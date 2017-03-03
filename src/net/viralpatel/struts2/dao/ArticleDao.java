@@ -28,4 +28,18 @@ public class ArticleDao extends BaseDaoImpl {
 	
 	}
 	
+	public List<Article> getAllArticlesByPage(int offset, int limit) {
+		
+		List<Article> articleArray = new ArrayList<Article>();
+    	
+    	List articleList = findByPage(Article.class, offset, limit);
+    	Iterator i = articleList.iterator();
+    	while (i.hasNext()) {
+    		articleArray.add((Article) i.next());
+    	}
+    	
+    	return articleArray;
+		
+	}
+	
 }

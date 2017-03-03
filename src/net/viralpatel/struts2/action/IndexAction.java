@@ -16,7 +16,7 @@ public class IndexAction extends BaseAction {
     	jedis.set("a", "like");
     	System.out.println(jedis.get("a"));
     	
-    	setArticles(getArticleServ().getAllArticles());
+    	setArticles(getArticleServ().getAllArticlesByPage(0, 1));
     	
     	return super.execute();
         

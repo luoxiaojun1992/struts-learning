@@ -22,6 +22,12 @@ public class ArticleServiceImpl implements ArticleService {
     	
 	}
 	
+	public List<Article> getAllArticlesByPage(int offset, int limit) {
+		
+		return getArticleDao().getAllArticlesByPage(offset, limit);
+		
+	}
+	
 	public void setArticleDao(ArticleDao articleDao) {
 		
 		this.articleDao = articleDao;

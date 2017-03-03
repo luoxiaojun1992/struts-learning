@@ -3,9 +3,12 @@ package net.viralpatel.struts2.dao;
 import java.io.Serializable;
 import java.util.List;
 
+import org.springframework.orm.hibernate5.HibernateCallback;
 import org.springframework.orm.hibernate5.support.HibernateDaoSupport;
 
 import com.sun.istack.internal.logging.Logger;
+
+import net.viralpatel.struts2.util.PageHibernateCallback;
 
 public class BaseDaoImpl extends HibernateDaoSupport implements BaseDao {
 	
@@ -46,5 +49,12 @@ public class BaseDaoImpl extends HibernateDaoSupport implements BaseDao {
 		return (List<T>) this.getHibernateTemplate().find("from " + entityClass.getName());
 		
 	}
+	
+	public <T>List <T>findByPage(Class <T>entityClass, int offset, int limit) {
+        
+		String hql="from " + entityClass.getName();
+        return (List<T>) this.getHibernateTemplate().execute((HibernateCallback<T>) new PageHibernateCallback(hql, new Object[]{}, offset, limit));
+        
+    }
 	
 }
