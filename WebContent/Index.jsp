@@ -1,6 +1,4 @@
 <jsp:include page="./head.jsp" />
 <%@ taglib prefix="s" uri="/struts-tags"%>
-<body>
-	<%	response.sendRedirect("index.action");%>
-</body>
-</html>
+<%	response.sendRedirect("index.action");%>
+<jsp:include page="./foot.jsp" />

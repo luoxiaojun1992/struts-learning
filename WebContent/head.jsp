@@ -4,3 +4,5 @@
 <head>
 <title><s:property value="siteName" /></title>
 </head>
+<body>
+	<h2><s:property value="siteName" /></h2>
