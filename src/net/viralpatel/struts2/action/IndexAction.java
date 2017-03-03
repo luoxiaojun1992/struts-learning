@@ -3,6 +3,7 @@ package net.viralpatel.struts2.action;
 import java.util.List;
 import net.viralpatel.struts2.bean.Article;
 import net.viralpatel.struts2.service.ArticleService;
+import redis.clients.jedis.Jedis;
 
 public class IndexAction extends BaseAction {
 	
@@ -10,6 +11,10 @@ public class IndexAction extends BaseAction {
 	private List<Article> articles;
 	
     public String execute() {
+    
+    	Jedis jedis = new Jedis("127.0.0.1", 6379);
+    	jedis.set("a", "like");
+    	System.out.println(jedis.get("a"));
     	
     	setArticles(getArticleServ().getAllArticles());
     	
