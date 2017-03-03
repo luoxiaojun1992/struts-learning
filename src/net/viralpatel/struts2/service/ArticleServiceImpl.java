@@ -12,21 +12,13 @@ public class ArticleServiceImpl implements ArticleService {
 	
 	public Article getArticleById(int id) {
 		
-		return (Article) getArticleDao().getEntityById(Article.class, id);
+		return getArticleDao().getArticleById(id);
 		
 	}
 	
 	public List<Article> getAllArticles() {
 		
-		List<Article> articleArray = new ArrayList<Article>();
-    	
-    	List articleList = getArticleDao().getAllEntity(Article.class);
-    	Iterator i = articleList.iterator();
-    	while (i.hasNext()) {
-    		articleArray.add((Article) i.next());
-    	}
-		
-    	return articleArray;
+    	return getArticleDao().getAllArticles();
     	
 	}
 	
