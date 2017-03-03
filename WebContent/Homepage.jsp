@@ -1,4 +1,5 @@
 <jsp:include page="./head.jsp" />
+<%@ page contentType="text/html; charset=UTF-8"%>
 <%@ taglib prefix="s" uri="/struts-tags"%>
 <ul>
 	<s:iterator var="article" value="articles" status="statu">
