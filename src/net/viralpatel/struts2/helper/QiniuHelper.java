@@ -1,7 +1,6 @@
 package net.viralpatel.struts2.helper;
 
-import java.io.IOException
-;
+import java.io.IOException;
 import com.qiniu.common.QiniuException;
 import com.qiniu.http.Response;
 import com.qiniu.storage.UploadManager;
@@ -50,6 +49,19 @@ public class QiniuHelper {
 
     //创建上传对象
     UploadManager uploadManager = new UploadManager(c);
+    
+    private static QiniuHelper qiniuHelper;
+    
+    public static QiniuHelper getInstance() {
+		
+		if (qiniuHelper != null && qiniuHelper instanceof QiniuHelper) {
+			return qiniuHelper;
+		} else {
+			qiniuHelper = new QiniuHelper();
+			return qiniuHelper;
+		}
+		
+	}
 
     //上传策略中设置persistentOps字段和persistentPipeline字段
     public String getUpToken() {
