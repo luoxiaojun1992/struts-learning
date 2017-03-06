@@ -1,4 +1,4 @@
-<jsp:include page="./head.jsp" />
+<jsp:include page="./layout/head.jsp" />
 <%@ page contentType="text/html; charset=UTF-8"%>
 <%@ taglib prefix="s" uri="/struts-tags"%>
 <ul>
@@ -10,4 +10,4 @@
 		</li>
 	</s:iterator>
 </ul>
-<jsp:include page="./foot.jsp" />
+<jsp:include page="./layout/foot.jsp" />

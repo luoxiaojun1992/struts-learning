@@ -1,4 +1,4 @@
-<jsp:include page="./head.jsp" />
+<jsp:include page="./layout/head.jsp" />
 <%@ page contentType="text/html; charset=UTF-8"%>
 <%@ taglib prefix="s" uri="/struts-tags"%>
 <s:actionerror />
@@ -8,4 +8,4 @@
     <s:token name="login-submit.token" />
     <s:submit method="submit" key="label.login" align="center" />
 </s:form>
-<jsp:include page="./foot.jsp" />
+<jsp:include page="./layout/foot.jsp" />
