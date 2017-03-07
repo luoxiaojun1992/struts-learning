@@ -25,7 +25,7 @@ public class IndexAction extends BaseAction {
     		System.out.println(e.getMessage());
     	}
     	
-    	setArticles(getArticleServ().getAllArticlesByPage(0, 1));
+    	setArticles(getArticleServ().getAllArticlesByPage(0, 3));
     	
     	return super.execute();
         
