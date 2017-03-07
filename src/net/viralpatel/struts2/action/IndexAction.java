@@ -3,9 +3,8 @@ package net.viralpatel.struts2.action;
 import java.io.IOException;
 import java.util.List;
 
-import org.markdown4j.Markdown4jProcessor;
-
 import net.viralpatel.struts2.bean.Article;
+import net.viralpatel.struts2.helper.MarkdownHelper;
 import net.viralpatel.struts2.helper.RedisHelper;
 import net.viralpatel.struts2.service.ArticleService;
 
@@ -21,7 +20,7 @@ public class IndexAction extends BaseAction {
     	System.out.println(redisHelper.get("a"));
     	
     	try {
-    		System.out.println(new Markdown4jProcessor().process("This is ***TXTMARK***"));
+    		System.out.println(MarkdownHelper.getInstance().purify("This is ***TXTMARK***"));
     	} catch (IOException e) {
     		System.out.println(e.getMessage());
     	}
