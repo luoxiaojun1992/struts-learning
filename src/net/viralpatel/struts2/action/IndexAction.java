@@ -1,10 +1,13 @@
 package net.viralpatel.struts2.action;
 
+import java.io.IOException;
 import java.util.List;
+
+import org.markdown4j.Markdown4jProcessor;
+
 import net.viralpatel.struts2.bean.Article;
 import net.viralpatel.struts2.helper.RedisHelper;
 import net.viralpatel.struts2.service.ArticleService;
-import redis.clients.jedis.Jedis;
 
 public class IndexAction extends BaseAction {
 	
@@ -16,6 +19,12 @@ public class IndexAction extends BaseAction {
     	RedisHelper redisHelper = RedisHelper.getInstance();
     	redisHelper.set("a", "like");
     	System.out.println(redisHelper.get("a"));
+    	
+    	try {
+    		System.out.println(new Markdown4jProcessor().process("This is ***TXTMARK***"));
+    	} catch (IOException e) {
+    		System.out.println(e.getMessage());
+    	}
     	
     	setArticles(getArticleServ().getAllArticlesByPage(0, 1));
     	
