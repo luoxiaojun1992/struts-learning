@@ -10,6 +10,8 @@
     <constant name="struts.objextFactory" value="spring" />
     <constant name="struts.custom.i18n.resources"
         value="ApplicationResources" />
+    <!-- Static Resources -->
+    <constant name="struts.action.excludePattern" value="/static/.*?" />
  
  	<!-- Frontend -->
     <package name="default" extends="struts-default" namespace="/">
