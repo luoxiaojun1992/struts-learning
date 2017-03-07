@@ -22,7 +22,13 @@ public class ArticleDetailAction extends BaseAction {
     
     public Article getArticle() {
     	
-    	//Parse Markdown
+    	return article;
+    
+    }
+    
+    //Parse Markdown
+    private Article getMarkdownParsedArticle(Article article) {
+
     	try {
     		article.setContent(MarkdownHelper.getInstance().parse(article.getContent()));
     	} catch (IOException e) {
@@ -30,12 +36,12 @@ public class ArticleDetailAction extends BaseAction {
     	}
     	
     	return article;
-    
+    	
     }
     
     public void setArticle(Article article) {
     	
-    	this.article = article;
+    	this.article = getMarkdownParsedArticle(article);
     
     }
     
