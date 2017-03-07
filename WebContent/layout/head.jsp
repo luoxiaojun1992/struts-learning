@@ -4,11 +4,11 @@
 <head>
 <title><s:property value="siteName" /></title>
 <!-- Bootstrap -->
-<link href="/assets/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="${pageContext.request.contextPath}/assets/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-<script src="/assets/bower_components/jquery/dist/jquery.min.js"></script>
+<script src="${pageContext.request.contextPath}/assets/bower_components/jquery/dist/jquery.min.js"></script>
 <!-- Include all compiled plugins (below), or include individual files as needed -->
-<script src="/assets/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="${pageContext.request.contextPath}/assets/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 </head>
 <body>
 	<h2><s:property value="siteName" /></h2>
