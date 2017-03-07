@@ -27,7 +27,7 @@ public class MarkdownHelper {
 		
 	}
 	
-	public String purify(String html) throws IOException {
+	public String parse(String html) throws IOException {
 		
 		return getMarkdown4jProcessor().process(html);
 		

@@ -20,7 +20,7 @@ public class IndexAction extends BaseAction {
     	System.out.println(redisHelper.get("a"));
     	
     	try {
-    		System.out.println(MarkdownHelper.getInstance().purify("This is ***TXTMARK***"));
+    		System.out.println(MarkdownHelper.getInstance().parse("This is ***TXTMARK***"));
     	} catch (IOException e) {
     		System.out.println(e.getMessage());
     	}

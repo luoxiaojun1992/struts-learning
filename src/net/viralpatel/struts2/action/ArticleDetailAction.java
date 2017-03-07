@@ -1,6 +1,9 @@
 package net.viralpatel.struts2.action;
 
+import java.io.IOException;
+
 import net.viralpatel.struts2.bean.*;
+import net.viralpatel.struts2.helper.MarkdownHelper;
 import net.viralpatel.struts2.service.ArticleService;
 
 public class ArticleDetailAction extends BaseAction {
@@ -18,6 +21,13 @@ public class ArticleDetailAction extends BaseAction {
     }
     
     public Article getArticle() {
+    	
+    	//Parse Markdown
+    	try {
+    		article.setContent(MarkdownHelper.getInstance().parse(article.getContent()));
+    	} catch (IOException e) {
+    		System.out.println(e.getMessage());
+    	}
     	
     	return article;
     
