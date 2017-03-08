@@ -10,9 +10,15 @@ public class ArticleListAction extends BaseAction {
 	private ArticleService articleServ;
 	private List<Article> articles;
 	
+	public final static int COUNT_PER_PAGE = 10;
+	
 	public String execute() {
     	
 		int page = Integer.parseInt(getParam("page", "1"));
+		int countOfAllArticles = getArticleServ().countAllArticles();
+		int pageTotal = countOfAllArticles / COUNT_PER_PAGE;
+		int prevPage, nextPage;
+		prevPage = page == 1 ? page : (page - 1);
 		
     	setArticles(getArticleServ().getAllArticlesByPage(0, 1));
     	

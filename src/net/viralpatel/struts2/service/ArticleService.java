@@ -12,4 +12,6 @@ public interface ArticleService {
 	
 	public List<Article> getAllArticlesByPage(int offset, int limit);
 	
+	public int countAllArticles();
+	
 }

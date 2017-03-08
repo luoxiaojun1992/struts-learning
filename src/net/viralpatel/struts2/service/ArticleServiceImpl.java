@@ -28,6 +28,12 @@ public class ArticleServiceImpl implements ArticleService {
 		
 	}
 	
+	public int countAllArticles() {
+		
+		return getArticleDao().countAllArticles();
+		
+	}
+	
 	public void setArticleDao(ArticleDao articleDao) {
 		
 		this.articleDao = articleDao;
