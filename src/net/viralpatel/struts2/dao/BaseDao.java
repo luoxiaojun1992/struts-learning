@@ -19,4 +19,6 @@ public interface BaseDao {
     
     public <T>List <T>findByPage(Class <T>entityClass, int offset, int limit);
     
+    public int countAll(Class entityClass);
+    
 }

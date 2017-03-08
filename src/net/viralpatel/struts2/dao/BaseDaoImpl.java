@@ -16,25 +16,25 @@ public class BaseDaoImpl extends HibernateDaoSupport implements BaseDao {
 	
 	public <T>void saveEntity(T entity) {
 		
-		this.getHibernateTemplate().saveOrUpdate(entity);
+		getHibernateTemplate().saveOrUpdate(entity);
 		
 	}
 	
 	public <T>void deleteEntity(T entity) {
 		
-		this.getHibernateTemplate().delete(entity);
+		getHibernateTemplate().delete(entity);
 		
 	}
 	
 	public <T>void deleteEntityById(Class <T>entityClass, Serializable id) {
 		
-		this.getHibernateTemplate().delete(entityClass.getName(), id);
+		getHibernateTemplate().delete(entityClass.getName(), id);
 		
 	}
 	
 	public <T>void updateEntity(T entity) {
 		
-		this.getHibernateTemplate().saveOrUpdate(entity);
+		getHibernateTemplate().saveOrUpdate(entity);
 		
 	}
 	
@@ -46,15 +46,21 @@ public class BaseDaoImpl extends HibernateDaoSupport implements BaseDao {
 	
 	public <T>List <T>getAllEntity(Class <T>entityClass) {
 		
-		return (List<T>) this.getHibernateTemplate().find("from " + entityClass.getName());
+		return (List<T>) getHibernateTemplate().find("from " + entityClass.getName());
 		
 	}
 	
 	public <T>List <T>findByPage(Class <T>entityClass, int offset, int limit) {
         
 		String hql="from " + entityClass.getName();
-        return (List<T>) this.getHibernateTemplate().execute((HibernateCallback<T>) new PageHibernateCallback(hql, new Object[]{}, offset, limit));
+        return (List<T>) getHibernateTemplate().execute((HibernateCallback<T>) new PageHibernateCallback(hql, new Object[]{}, offset, limit));
         
     }
 	
+	public int countAll(Class entityClass) {
+		
+		Integer count = (Integer)getHibernateTemplate().find("from " + entityClass.getName()).listIterator().next();
+		return count.intValue();
+		
+	}
 }

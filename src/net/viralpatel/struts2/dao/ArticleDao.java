@@ -9,16 +9,8 @@ import net.viralpatel.struts2.bean.Article;
 public class ArticleDao extends BaseDaoImpl {
 	
 	public List<Article> getAllArticles() {
-		
-		List<Article> articleArray = new ArrayList<Article>();
     	
-    	List articleList = getAllEntity(Article.class);
-    	Iterator i = articleList.iterator();
-    	while (i.hasNext()) {
-    		articleArray.add((Article) i.next());
-    	}
-    	
-    	return articleArray;
+    	return formatArticleList(getAllEntity(Article.class));
 		
 	}
 	
@@ -29,11 +21,21 @@ public class ArticleDao extends BaseDaoImpl {
 	}
 	
 	public List<Article> getAllArticlesByPage(int offset, int limit) {
+    	
+    	return formatArticleList(findByPage(Article.class, offset, limit));
+		
+	}
+	
+	public int countAllArticles() {
+		
+		return countAll(Article.class);
+		
+	}
+	
+	private List<Article> formatArticleList(List articleList) {
 		
 		List<Article> articleArray = new ArrayList<Article>();
-    	
-    	List articleList = findByPage(Article.class, offset, limit);
-    	Iterator i = articleList.iterator();
+		Iterator i = articleList.iterator();
     	while (i.hasNext()) {
     		articleArray.add((Article) i.next());
     	}
