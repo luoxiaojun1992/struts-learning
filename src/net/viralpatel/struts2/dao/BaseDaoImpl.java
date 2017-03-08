@@ -59,7 +59,7 @@ public class BaseDaoImpl extends HibernateDaoSupport implements BaseDao {
 	
 	public int countAll(Class entityClass) {
 		
-		Integer count = (Integer)getHibernateTemplate().find("from " + entityClass.getName()).listIterator().next();
+		Long count = (Long)getHibernateTemplate().find("select count(*) from " + entityClass.getName()).listIterator().next();
 		return count.intValue();
 		
 	}
