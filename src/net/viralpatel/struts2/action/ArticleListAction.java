@@ -12,6 +12,8 @@ public class ArticleListAction extends BaseAction {
 	
 	public String execute() {
     	
+		int page = Integer.parseInt(getParam("page", "1"));
+		
     	setArticles(getArticleServ().getAllArticlesByPage(0, 1));
     	
     	return super.execute();
