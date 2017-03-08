@@ -9,9 +9,11 @@ import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;  
 import javax.servlet.ServletResponse;  
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;  
+import javax.servlet.http.HttpServletResponse;
+
+import org.apache.struts2.ServletActionContext;  
   
-public class SessionFilter implements Filter{  
+public class SessionFilter implements Filter{
       
     public void destroy() {  
         //
@@ -21,7 +23,7 @@ public class SessionFilter implements Filter{
             FilterChain chain) throws IOException, ServletException {
     	
     	if (((HttpServletRequest) request).getSession().getAttribute("login_flag") == null) { 
-    		((HttpServletResponse)response).sendRedirect("login.action");
+    		((HttpServletResponse)response).sendRedirect("/Struts2_Hello_World/login.action");
     	} else {
     		chain.doFilter(request, response);  
         }
