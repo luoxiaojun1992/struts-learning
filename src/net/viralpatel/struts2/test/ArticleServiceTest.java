@@ -24,6 +24,8 @@ import net.viralpatel.struts2.service.ArticleServiceImpl;
  */
 public class ArticleServiceTest {
 	
+	private ArticleDao articleDao;
+	
 	/**
 	 * @throws java.lang.Exception
 	 */
@@ -43,6 +45,9 @@ public class ArticleServiceTest {
 	 */
 	@Before
 	public void setUp() throws Exception {
+		
+		setArticleDao(mock(ArticleDao.class));
+		
 	}
 
 	/**
@@ -53,8 +58,8 @@ public class ArticleServiceTest {
 	}
 
 	@Test
-	public void test() {
-		ArticleDao articleDao = mock(ArticleDao.class);
+	public void testGetArticleById() {
+		ArticleDao articleDao = getArticleDao();
 		ArticleServiceImpl articleService  = new ArticleServiceImpl();
 		articleService.setArticleDao(articleDao);
 		Article article = new Article();
@@ -62,5 +67,17 @@ public class ArticleServiceTest {
 		when(articleDao.getArticleById(1)).thenReturn(article);
 		assertEquals(articleService.getArticleById(1).getId(), 1);
 	}
+	
+	public void setArticleDao(ArticleDao articleDao) {
+		
+		this.articleDao = articleDao;
+	
+	}
 
+	public ArticleDao getArticleDao() {
+		
+		return articleDao;
+		
+	}
+	
 }
