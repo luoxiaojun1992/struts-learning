@@ -13,6 +13,8 @@ public class IndexAction extends BaseAction {
 	private ArticleService articleServ;
 	private List<Article> articles;
 	
+	public final static int COUNT_PER_PAGE = 10;
+	
     public String execute() {
     
     	RedisHelper redisHelper = RedisHelper.getInstance();
@@ -25,7 +27,7 @@ public class IndexAction extends BaseAction {
     		System.out.println(e.getMessage());
     	}
     	
-    	setArticles(getArticleServ().getAllArticlesByPage(0, 3));
+    	setArticles(getArticleServ().getAllArticlesByPage(0, COUNT_PER_PAGE));
     	
     	return super.execute();
         
