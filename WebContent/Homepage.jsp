@@ -10,4 +10,7 @@
 		</li>
 	</s:iterator>
 </ul>
+<a href="<s:url action="article-list.action">
+				<s:param name="page" value="1"></s:param>
+			</s:url>" target="_blank">更多...</a>
 <jsp:include page="./layout/foot.jsp" />
