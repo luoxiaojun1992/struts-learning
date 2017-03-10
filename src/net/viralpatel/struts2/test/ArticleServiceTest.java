@@ -97,6 +97,28 @@ public class ArticleServiceTest {
 	}
 	
 	@Test
+	public void testGetAllArticlesByPage() {
+		
+		List<Article> articleList = new ArrayList<Article>();
+		
+		for (int i = 0; i < 3; ++i) {
+			
+			Article article = new Article();
+			article.setId(1);
+			articleList.add(article);
+			
+		}
+		
+		when(getArticleDao().getAllArticlesByPage(0, 3)).thenReturn(articleList);
+		
+		Iterator<Article> i = getArticleService().getAllArticlesByPage(0, 3).iterator();
+		while(i.hasNext()) {
+			assertEquals(i.next().getId(), 1);
+		}
+		
+	}
+	
+	@Test
 	public void testCountAllArticles() {
 		
 		when(getArticleDao().countAllArticles()).thenReturn(1);
