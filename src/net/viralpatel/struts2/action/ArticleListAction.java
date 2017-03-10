@@ -11,12 +11,14 @@ public class ArticleListAction extends BaseAction {
 	private List<Article> articles;
 	private int prevPageNum;
 	private int nextPageNum;
+	private int page;
 	
 	public final static int COUNT_PER_PAGE = 10;
 	
 	public String execute() {
     	
-		int page = Integer.parseInt(getParam("page", "1"));
+		setPage(Integer.parseInt(getParam("page", "1")));
+		int page = getPage();
 		setPrevPageNum(page == 1 ? page : (page - 1));
 		setNextPageNum(page == (int)Math.ceil((double)getArticleServ().countAllArticles() / (double)COUNT_PER_PAGE) ? page : (page + 1));
 		
@@ -72,6 +74,17 @@ public class ArticleListAction extends BaseAction {
     	
     	return this.nextPageNum;
     	
+    }
+    
+    public void setPage(int page) {
+    	
+    	this.page = page;
+    	
+    }
+    
+    public int getPage() {
+    	
+    	return page;
     }
 	
 }

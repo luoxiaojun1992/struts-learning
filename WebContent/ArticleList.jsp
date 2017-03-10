@@ -10,4 +10,15 @@
 		</li>
 	</s:iterator>
 </ul>
+<nav aria-label="...">
+  <ul class="pager">
+    <li><a href="<s:url action="article-list.action">
+				<s:param name="page" value="prevPageNum"></s:param>
+			</s:url>">Previous</a></li>
+	<li><s:property value="page" /></li>
+    <li><a href="<s:url action="article-list.action">
+				<s:param name="page" value="nextPageNum"></s:param>
+			</s:url>">Next</a></li>
+  </ul>
+</nav>
 <jsp:include page="./layout/foot.jsp" />
