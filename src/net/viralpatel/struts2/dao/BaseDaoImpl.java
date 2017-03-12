@@ -44,15 +44,23 @@ public class BaseDaoImpl extends HibernateDaoSupport implements BaseDao {
 		
 	}
 	
-	public <T>List <T>getAllEntity(Class <T>entityClass) {
+	public <T>List <T>getAllEntity(Class <T>entityClass, String ...orderBy) {
 		
-		return (List<T>) getHibernateTemplate().find("from " + entityClass.getName());
+		if (orderBy.length < 1) {
+			orderBy = new String[]{"updateAt desc"};
+		}
+		
+		return (List<T>) getHibernateTemplate().find("from " + entityClass.getName() + " order by " + orderBy[0]);
 		
 	}
 	
-	public <T>List <T>findByPage(Class <T>entityClass, int offset, int limit) {
+	public <T>List <T>findByPage(Class <T>entityClass, int offset, int limit, String ...orderBy) {
         
-		String hql="from " + entityClass.getName();
+		if (orderBy.length < 1) {
+			orderBy = new String[]{"updateAt desc"};
+		}
+		
+		String hql="from " + entityClass.getName() + " order by " + orderBy[0];
         return (List<T>) getHibernateTemplate().execute((HibernateCallback<T>) new PageHibernateCallback(hql, new Object[]{}, offset, limit));
         
     }

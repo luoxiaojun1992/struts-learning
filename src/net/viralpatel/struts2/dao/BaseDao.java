@@ -15,9 +15,9 @@ public interface BaseDao {
 	
     public <T>T getEntityById(Class <T>entityClass, Serializable id);
 
-    public <T>List <T>getAllEntity(Class <T>entityClass);
+    public <T>List <T>getAllEntity(Class <T>entityClass, String ...orderBy);
     
-    public <T>List <T>findByPage(Class <T>entityClass, int offset, int limit);
+    public <T>List <T>findByPage(Class <T>entityClass, int offset, int limit, String ...orderBy);
     
     public int countAll(Class entityClass);
     
