@@ -13,4 +13,23 @@
 <a href="<s:url action="article-list.action">
 				<s:param name="page" value="1"></s:param>
 			</s:url>" target="_blank">更多...</a>
+
+<ul id="example-1">
+  <li v-for="item in items">
+    {{ item.message }}
+  </li>
+</ul>
+
+<script>
+var example1 = new Vue({
+	  el: '#example-1',
+	  data: {
+	    items: [
+	      { message: 'Foo' },
+	      { message: 'Bar' }
+	    ]
+	  }
+	});
+</script>
+			
 <jsp:include page="./layout/foot.jsp" />
